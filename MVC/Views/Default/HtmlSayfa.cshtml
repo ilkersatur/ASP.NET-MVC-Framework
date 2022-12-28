@@ -1,0 +1,59 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HtmlSayfa</title>
+    <style>
+        .orange{
+            color:orange
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>NABER</h1>
+        <table border="1">
+            <tr>
+                <td>aaa</td>
+                <td>aaa</td>
+                <td>aaa</td>
+            </tr>
+            <tr>
+                <td>aaa</td>
+                <td>aaa</td>
+                <td>aaa</td>
+            </tr>
+        </table>
+        <!--Razor Kullanımı-->
+        @for (int i = 0; i < 5; i++)
+        {
+            <h1>MERHABA</h1>
+        }
+        @{
+            //birden fazla kod yazılacak ise süslü parantez içine yazılır
+            Random random = new Random();
+            <h1 class="orange">@random.Next(1, 7)</h1>
+           
+            
+        }
+        <script>
+                        //Buraya JavaScript kodları yazılır.
+        </script>
+
+        <a href="https://www.google.com.tr/?hl=tr">Google</a>
+    </div>
+    <!--
+        View sayfasında:
+        -HTML, CSS, JS
+        -Razor
+        -HTML Helpers yazılabilir.
+    -->
+    @Html.ActionLink("Sepete Ekle","Sepet")
+</body>
+</html>

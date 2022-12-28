@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Veri yakala........</h2>
+
+@ViewData["veri"]
+@ViewData["urun"]
+
+@{
+    MVC.Models.Urun urun = (MVC.Models.Urun)ViewData["urun"];
+    @urun.UrunID @urun.UrunAdi @urun.Fiyat
+}
+<br />
+<br />
+@ViewBag.Mesaj
+@ViewBag.Product
+
+@{
+    MVC.Models.Urun urun2 = ViewBag.Product;
+    @urun2.UrunID @urun2.Fiyat @urun2.UrunAdi
+}
+
+<h1>Kolleksiyon Kullanımı</h1>
+
+@foreach (MVC.Models.Urun urun3 in (List<MVC.Models.Urun>)ViewData["urunler"])
+{
+    @urun3.UrunID @urun3.Fiyat @urun3.UrunAdi
+}
+
+<br />
+
+@{
+    //Wiew bag ile
+    foreach (MVC.Models.Urun urun3 in ViewBag.Products)
+    {
+        @urun3.UrunID @urun3.Fiyat @urun3.UrunAdi
+    }
+    //ViewData ve View Bag arasındaki fark tip dönüşümüdür\\
+}
+
+<table border="1px">
+    @foreach (MVC.Models.Urun urun3 in ViewBag.Products)
+    {
+  
+    <tr>
+        <td>@urun3.UrunID</td>
+        <td>@urun3.Fiyat</td>
+        <td>@urun3.UrunAdi</td>
+    </tr> 
+    }
+</table>
